@@ -1,0 +1,51 @@
+# Python
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info
+dist
+build
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Database (will be created in container)
+*.db
+*.sqlite
+
+# Pickle files (will be created in container)
+*.pickle
+*.pkl
+
+# Documentation
+*.md
+README.md
+
+# Zip files
+*.zip
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+Dockerfile
+.dockerignore
+docker-compose.yml

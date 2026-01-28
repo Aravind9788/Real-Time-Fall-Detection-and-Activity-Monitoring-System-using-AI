@@ -1,0 +1,79 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Project Specific
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Pickle files (model states)
+*.pickle
+*.pkl
+
+# Model weights - uncomment if you want to track them in git
+# yolov8n-pose.pt
+# *.pt
+
+# Wheel files
+*.whl
+
+# Face registration images
+registered_faces/
+
+# Logs
+*.log
+
+# Environment variables
+.env
+.env.local
+
+# Zip archives
+*.zip
+
+# OS specific
+Thumbs.db
+.DS_Store
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
