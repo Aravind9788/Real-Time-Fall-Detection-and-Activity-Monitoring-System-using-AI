@@ -9,7 +9,6 @@ import sqlite3
 import pickle
 import time
 import os
-import requests
 import threading
 from datetime import datetime, date
 
@@ -174,9 +173,8 @@ def send_fall_alert(alert_msg, pid, fall_type, coords=None):
         conn.commit()
         conn.close()
         
-        from modules.detection import FALL_URL
-        requests.post(FALL_URL, json={"person": alert_msg}, timeout=1)
-        print("✓ Fall alert sent and logged successfully")
+        # Alert already sent via WebSocket to connected clients
+        print("✓ Fall alert logged to database successfully")
     except Exception as e:
         print(f"✗ Failed to send/log fall alert: {e}")
 

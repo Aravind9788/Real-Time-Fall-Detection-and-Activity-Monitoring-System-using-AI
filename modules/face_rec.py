@@ -156,3 +156,44 @@ def compare_signatures(sig1, sig2):
 
 # Load encodings on module import
 load_encodings()
+
+
+def recognize_face(person_img, tolerance=0.6):
+    """
+    Recognize a face in the given image crop.
+    
+    Args:
+        person_img: BGR image crop of the person
+        tolerance: Distance tolerance for face matching
+        
+    Returns:
+        str: Name of the matched person, or None if no match/no face
+    """
+    try:
+        # Use thread-safe copy of encodings/names
+        with data_lock:
+            target_encodings = known_face_encodings[:]
+            target_names = known_face_names[:]
+        
+        if not target_encodings:
+            return None
+            
+        rgb = cv2.cvtColor(person_img, cv2.COLOR_BGR2RGB)
+        # Using upsample=1 for better accuracy on small crops
+        face_locations = face_recognition.face_locations(rgb, number_of_times_to_upsample=1)
+        
+        if not face_locations:
+            return None
+            
+        face_encodings = face_recognition.face_encodings(rgb, face_locations)
+        
+        for fe in face_encodings:
+            matches = face_recognition.compare_faces(target_encodings, fe, tolerance=tolerance)
+            if True in matches:
+                first_match_index = matches.index(True)
+                return str(target_names[first_match_index])
+                
+        return None
+    except Exception as e:
+        print(f"Face Recognition Error: {e}")
+        return None
