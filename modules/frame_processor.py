@@ -11,7 +11,7 @@ from modules.hybrid_detector import get_hybrid_detector
 
 class FrameQueue:
     """
-    Thread-safe bounded queue with drop-oldest policy.
+    Thread-safe bounded queue with drop-oldest policy.and
     Optimized for real-time fall detection with low latency.
     """
     
@@ -71,6 +71,7 @@ class FrameQueue:
             return self.queue.get(timeout=timeout)
         except queue.Empty:
             return None
+        
     
     def size(self):
         """Get current number of frames in queue"""
